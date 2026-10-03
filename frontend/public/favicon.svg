@@ -1,16 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F766E"/>
-      <stop offset="100%" stop-color="#14B8A6"/>
-    </linearGradient>
-  </defs>
-  <rect x="2" y="2" width="44" height="44" rx="10" fill="url(#g)"/>
-  <circle cx="24" cy="24" r="14" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.4" fill="none"/>
-  <circle cx="24" cy="24" r="7" stroke="#FFFFFF" stroke-width="2.5" fill="#0F766E"/>
-  <circle cx="24" cy="24" r="3" fill="#38BDF8"/>
-  <circle cx="34" cy="14" r="2.5" fill="#FFFFFF"/>
-  <path d="M28 20L34 14" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
-  <circle cx="14" cy="34" r="2.5" fill="#FFFFFF"/>
-  <path d="M20 28L14 34" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<defs>
+<linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00645F"/><stop offset="1" stop-color="#008F76"/></linearGradient>
+<linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#59E0C0"/><stop offset="1" stop-color="#25BFA3"/></linearGradient>
+</defs>
+<rect width="1024" height="1024" fill="#fff"/>
+<rect x="250" y="90" width="524" height="524" rx="105" fill="url(#teal)"/>
+<path d="M512 132L700 194V344C700 448 628 520 512 570C396 520 324 448 324 344V194Z" fill="none" stroke="#fff" stroke-width="24" stroke-linejoin="round"/>
+<g fill="none" stroke="url(#mint)" stroke-width="14"><circle cx="512" cy="332" r="122"/><circle cx="512" cy="332" r="88"/><circle cx="512" cy="332" r="54"/></g>
+<g stroke="#fff" stroke-width="7" stroke-linecap="round"><path d="M512 205V332"/><path d="M385 332H512"/><path d="M512 332H639"/></g>
+<path d="M512 332L596 222A122 122 0 0 1 622 268Z" fill="url(#mint)"/><circle cx="512" cy="332" r="15" fill="#fff"/>
+<path d="M445 407C445 365 468 345 512 345C556 345 579 365 579 407C579 452 592 475 614 497H410C432 475 445 452 445 407Z" fill="#fff"/>
+<rect x="493" y="397" width="38" height="17" rx="8.5" fill="url(#teal)"/><path d="M486 500H538C538 521 486 521 486 500Z" fill="#fff"/>
+<g fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round"><path d="M423 401C397 420 397 455 423 474"/><path d="M601 401C627 420 627 455 601 474"/><path d="M399 387C363 416 363 462 399 491"/><path d="M625 387C661 416 661 462 625 491"/></g>
+<text x="512" y="760" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="142" font-weight="700" letter-spacing="-6" fill="#00645F">Regnify</text>
+<circle cx="657" cy="655" r="15" fill="#3DD6B5"/>
+<text x="512" y="835" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="500" letter-spacing="1" fill="#526B68">Know the Change. Take Action.</text>
 </svg>
