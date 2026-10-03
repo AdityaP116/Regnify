@@ -20,22 +20,33 @@ Regnify is a fully integrated, full-stack application built with React, FastAPI,
 ### Graceful Degradation (Demo Mode)
 The entire application is built with a "dual-mode" architecture. If Firebase credentials or Gemini API keys are not provided, both the frontend and backend degrade gracefully to use a deterministic local seed corpus. The app is **guaranteed to run out of the box** without configuration.
 
+## Features
+
+- **Dashboard / Overview:** Real-time statistics, recent alerts, upcoming deadlines, and compliance status.
+- **Regulatory Monitoring:** Browse, filter, and read detailed breakdowns of global regulatory changes, including exact relevancy mapping.
+- **Compliance Tasks:** Auto-generated compliance tasks from regulatory updates, complete with tracking and evidence uploads.
+- **Actionable Alerts:** High-priority alerts pushed to the user for critical compliance risks.
+- **Calendar:** Visual timeline of upcoming regulatory effective dates and task deadlines.
+- **AI Assistant:** Gemini-powered chat interface grounded in the regulatory corpus to answer specific compliance questions.
+- **Business Profile:** Configurable profile detailing jurisdictions, industries, and business activities to personalize regulatory relevancy matching.
+- **Authentication & Onboarding:** Secure Firebase authentication flow with a guided onboarding experience for new users.
+
 ## Repository Layout
 
-```
+```text
 regnify/
-├─ frontend/            React + Vite + TypeScript + Tailwind CSS + Firebase
+├─ frontend/            React + Vite + TypeScript + Tailwind CSS
 │  ├─ src/
-│  │  ├─ components/    Reusable design-system + domain components
-│  │  ├─ context/       Auth + App data providers (handles frontend state & sync)
+│  │  ├─ components/    Reusable design-system + domain components (AppShell, UI)
+│  │  ├─ context/       AuthContext for state & session management
 │  │  ├─ data/          Seed corpus (deterministic demo dataset)
 │  │  ├─ lib/           Firebase init, API client (api.ts with auth injection)
-│  │  └─ pages/         Route-level screens
+│  │  └─ pages/         Route-level screens (Overview, Regulations, Assistant, etc.)
 │  └─ .env.example
 ├─ backend/             FastAPI service (Firebase Admin + AI interpretation)
 │  ├─ app/
-│  │  ├─ routers/       AI, dashboard, compliance, regulations, calendar, alerts
-│  │  ├─ services/      Firestore helpers, corpus seeder, Gemini AI RAG client
+│  │  ├─ routers/       AI, dashboard, compliance, regulations, calendar, alerts, etc.
+│  │  ├─ services/      Firestore helpers, corpus seeder, Gemini AI client
 │  │  ├─ config.py      Pydantic settings for robust environment loading
 │  │  ├─ auth.py        Firebase token verification FastAPI dependency
 │  │  └─ models.py      Pydantic models strictly mirroring frontend TypeScript
