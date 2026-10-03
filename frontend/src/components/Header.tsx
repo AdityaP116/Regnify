@@ -6,10 +6,14 @@ import { useAppData } from '../context/AppDataContext';
 
 export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
   const { user, signOutUser } = useAuth();
-  const { notifications, alerts } = useAppData();
+  const { notifications, alerts, business } = useAppData();
   const navigate = useNavigate();
   const unread = notifications.filter((n) => !n.read).length + (alerts.length ? 1 : 0);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const locationTag = business 
+    ? `${business.jurisdiction.split(',')[0]} • ${business.sector.split(' ')[0]}`
+    : 'Maharashtra • Factory Reg';
 
   return (
     <header className="sticky top-0 z-30 bg-surface/95 backdrop-blur border-b border-[#E2E8E5]">
@@ -38,7 +42,7 @@ export function Header({ onOpenMenu }: { onOpenMenu: () => void }) {
         <div className="flex items-center gap-2 ml-auto">
           <button className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container-low border border-[#E2E8E5] font-label-md text-label-md text-on-surface hover:border-primary transition-colors">
             <Icon name="factory" size={18} className="text-primary" />
-            Maharashtra • Factory Reg
+            {locationTag}
             <Icon name="expand_more" size={18} className="text-outline" />
           </button>
 

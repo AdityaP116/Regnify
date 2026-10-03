@@ -27,19 +27,15 @@ def _tasks_from_seed() -> list[ComplianceTask]:
 async def list_tasks(uid: str = Depends(require_auth)) -> list[ComplianceTask]:
     """Return compliance tasks for the current user."""
     if is_firebase_ok():
-        # Try user-scoped tasks first
-        docs = col_query("complianceTasks", "uid", "==", uid)
-        if not docs:
-            # Fall back to business-level tasks (seed data)
-            docs = col_list("complianceTasks")
+        all_docs = col_list("complianceTasks")
+        docs = [d for d in all_docs if d.get("uid") == uid or d.get("uid") is None]
         result = []
         for d in docs:
             try:
                 result.append(ComplianceTask(**d))
             except Exception:
                 pass
-        if result:
-            return result
+        return result
 
     return _tasks_from_seed()
 
@@ -90,8 +86,13 @@ async def update_task(
         update_data["progress"] = 100
 
     if is_firebase_ok():
-        doc_update("complianceTasks", task_id, update_data)
         from app.services.firebase import doc_get
+        from fastapi import HTTPException
+        doc = doc_get("complianceTasks", task_id)
+        if not doc or doc.get("uid") != uid:
+            raise HTTPException(status_code=403, detail="Not authorized to update this task")
+            
+        doc_update("complianceTasks", task_id, update_data)
         doc = doc_get("complianceTasks", task_id)
         if doc:
             try:

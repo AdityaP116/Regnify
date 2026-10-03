@@ -27,14 +27,16 @@ async def get_dashboard(uid: str = Depends(require_auth)) -> DashboardSnapshot:
     if is_firebase_ok():
         from app.services.firebase import doc_get
         user_doc = doc_get("users", uid)
-        if user_doc and user_doc.get("name"):
-            user_name = user_doc["name"].split()[0]
-            base_snapshot["greetingName"] = user_name
+        business_id = "default"
+        if user_doc:
+            if user_doc.get("name"):
+                user_name = user_doc["name"].split()[0]
+                base_snapshot["greetingName"] = user_name
+            business_id = user_doc.get("businessId", "default")
 
-        results = col_query("dashboardSnapshot", "uid", "==", uid)
-        if results:
-            data = dict(results[0])
-            data.pop("uid", None)
+        doc = doc_get("dashboardSnapshot", business_id)
+        if doc:
+            data = dict(doc)
             data["greetingName"] = user_name
             try:
                 return DashboardSnapshot(**data)

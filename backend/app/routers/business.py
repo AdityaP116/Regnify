@@ -53,18 +53,23 @@ async def update_business_profile(
     from app.services.firebase import doc_set
     
     if is_firebase_ok():
-        # Update the business profile
-        doc_set("businesses", profile.id, profile.model_dump())
-        
-        # Ensure the user document is linked to this business
+        # Ensure the user document is linked to this business before allowing update
         user_docs = col_query("users", "uid", "==", uid)
         if user_docs:
             user_doc = user_docs[0]
+            existing_business_id = user_doc.get("businessId")
+            if existing_business_id and existing_business_id != profile.id:
+                from fastapi import HTTPException
+                raise HTTPException(status_code=403, detail="Not authorized to update this business profile")
+            
             if user_doc.get("businessId") != profile.id:
                 user_doc["businessId"] = profile.id
                 doc_set("users", uid, user_doc)
         else:
             # Create a basic user doc if it doesn't exist
             doc_set("users", uid, {"uid": uid, "businessId": profile.id})
+
+        # Update the business profile only after authorization is successful
+        doc_set("businesses", profile.id, profile.model_dump())
             
     return profile

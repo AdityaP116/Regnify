@@ -32,24 +32,33 @@ export function LogoMark({ size = 40 }: { size?: number }) {
 export function Logo({
   size = 34,
   showTagline = false,
+  variant = 'light',
   className = '',
 }: {
   size?: number;
   showTagline?: boolean;
+  variant?: 'light' | 'dark';
   className?: string;
 }) {
+  const wordColor = variant === 'dark' ? 'text-white' : 'text-primary';
+  const tagColor = variant === 'dark' ? 'text-white/50' : 'text-on-surface-variant';
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark size={size} />
       <span className="flex flex-col leading-none">
         <span
-          className="font-sans font-extrabold tracking-tight text-primary"
+          className={`font-sans font-extrabold tracking-tight ${wordColor} inline-flex items-center`}
           style={{ fontSize: size * 0.62 }}
         >
           Regnify
+          <span
+            className="inline-block rounded-full bg-[#14B8A6] ml-1.5"
+            style={{ width: size * 0.16, height: size * 0.16 }}
+            aria-hidden="true"
+          />
         </span>
         {showTagline && (
-          <span className="font-label-sm text-label-sm uppercase tracking-[0.16em] text-on-surface-variant mt-0.5">
+          <span className={`font-label-sm text-label-sm uppercase tracking-[0.16em] ${tagColor} mt-0.5`}>
             Regulatory Intelligence
           </span>
         )}

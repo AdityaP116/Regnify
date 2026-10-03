@@ -15,17 +15,15 @@ router = APIRouter(prefix="/api", tags=["Notifications"])
 async def list_notifications(uid: str = Depends(require_auth)) -> list[NotificationItem]:
     """Return notifications for the current user."""
     if is_firebase_ok():
-        docs = col_query("notifications", "uid", "==", uid)
-        if not docs:
-            docs = col_list("notifications")
+        all_docs = col_list("notifications")
+        docs = [d for d in all_docs if d.get("uid") == uid or d.get("uid") is None]
         result = []
         for d in docs:
             try:
                 result.append(NotificationItem(**d))
             except Exception:
                 pass
-        if result:
-            return result
+        return result
 
     corpus = get_corpus()
     return [NotificationItem(**n) for n in corpus.get("notifications", [])]
@@ -39,6 +37,10 @@ async def mark_notification_read(
     """Mark a notification as read."""
     from app.services.firebase import doc_update, doc_get
     if is_firebase_ok():
+        doc = doc_get("notifications", notification_id)
+        if not doc or (doc.get("uid") is not None and doc.get("uid") != uid):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=403, detail="Not authorized to update this notification")
         doc_update("notifications", notification_id, {"read": True})
         doc = doc_get("notifications", notification_id)
         if doc:

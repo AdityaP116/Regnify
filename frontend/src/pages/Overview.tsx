@@ -9,10 +9,20 @@ import { UpdateItem } from '../components/dashboard/UpdateItem';
 import { DeadlineRunway } from '../components/dashboard/DeadlineRunway';
 import { ComplianceHealthCard, EnforcingAuthoritiesCard, ImmediateTasksCard } from '../components/dashboard/ComplianceHealthCard';
 import { useAppData } from '../context/AppDataContext';
+import { useAuth } from '../context/AuthContext';
 
 function Greeting() {
   const { dashboard } = useAppData();
+  const { user } = useAuth();
   if (!dashboard) return null;
+
+  // Derive a friendly first name: prefer real auth user name, fall back to seed
+  const firstName = (user?.name || dashboard.greetingName).split(' ')[0];
+
+  // Time-aware greeting
+  const hour = new Date().getHours();
+  const timeGreeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+
   return (
     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pt-2 pb-6">
       <div>
@@ -23,7 +33,7 @@ function Greeting() {
           <span className="font-label-sm text-label-sm text-outline">Dossier ID: {dashboard.dossierId}</span>
         </div>
         <h1 className="font-display font-headline-xl text-headline-xl text-primary font-medium tracking-tight">
-          Good morning, {dashboard.greetingName}
+          {timeGreeting}, {firstName}
         </h1>
         <p className="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
           Here is what changed across your subscribed jurisdictions and what requires your immediate operational attention.
@@ -45,7 +55,7 @@ function Greeting() {
 }
 
 export default function Overview() {
-  const { state, error, reload, dashboard, regulations, alerts, tasks, sources, calendar } = useAppData();
+  const { state, error, reload, dashboard, regulations, alerts, tasks, sources, calendar, business } = useAppData();
 
   if (state === 'loading') return <LoadingState label="Synchronizing gazettes, circulars and statutory notifications…" />;
   if (state === 'error' || !dashboard) return <ErrorState description={error ?? undefined} onRetry={reload} />;
@@ -54,9 +64,13 @@ export default function Overview() {
   const topAlerts = alerts.slice(0, 3);
   const immediateTasks = tasks.filter((t) => t.status !== 'completed').slice(0, 4);
 
+  const footerText = business 
+    ? `Filter: ${business.jurisdiction.split(',')[0]} • ${business.sector.split(' ')[0]} • ${business.employees} Emp.`
+    : 'Filter: Maharashtra • Manufacturing • 45 Emp.';
+
   const metrics = [
     { label: 'New Updates', value: dashboard.metrics.newUpdates, delta: dashboard.metrics.newUpdatesDelta, icon: 'feed', footer: 'CBIC & Labour Ministry Gazettes' },
-    { label: 'Relevant to You', value: dashboard.metrics.relevant, delta: dashboard.metrics.relevantMatch, icon: 'cloud_upload', footer: 'Filter: Maharashtra • Manufacturing • 45 Emp.', accent: 'secondary' as const },
+    { label: 'Relevant to You', value: dashboard.metrics.relevant, delta: dashboard.metrics.relevantMatch, icon: 'cloud_upload', footer: footerText, accent: 'secondary' as const },
     { label: 'Action Required', value: dashboard.metrics.actionRequired, delta: dashboard.metrics.actionPriority, icon: 'error', footer: 'Filing, Sensor Vendor, & Telemetry Setup', accent: 'critical' as const },
     { label: 'Due Soon (< 7 Days)', value: dashboard.metrics.dueSoon, delta: dashboard.metrics.dueRisk, icon: 'schedule', footer: 'Filing: Sensor Vendor & Telemetry' },
   ];

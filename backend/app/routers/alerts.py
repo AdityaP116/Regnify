@@ -19,7 +19,8 @@ router = APIRouter(prefix="/api", tags=["Alerts"])
 async def list_alerts(uid: str = Depends(require_auth)) -> list[AlertItem]:
     """Return all regulatory alerts."""
     if is_firebase_ok():
-        docs = col_list("alerts")
+        all_docs = col_list("alerts")
+        docs = [d for d in all_docs if d.get("uid") == uid or d.get("uid") is None]
         result = []
         for d in docs:
             try:
@@ -41,6 +42,10 @@ async def mark_alert_read(
     """Mark a regulatory alert as read/actioned."""
     from app.services.firebase import doc_update, doc_get
     if is_firebase_ok():
+        doc = doc_get("alerts", alert_id)
+        if not doc or (doc.get("uid") is not None and doc.get("uid") != uid):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=403, detail="Not authorized to update this alert")
         doc_update("alerts", alert_id, {"status": "Review Needed", "requiresAction": False})
         doc = doc_get("alerts", alert_id)
         if doc:

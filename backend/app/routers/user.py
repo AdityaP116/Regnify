@@ -27,7 +27,7 @@ def _initials_of(name: str) -> str:
 @router.get("/user-profile", response_model=UserProfile)
 async def get_user_profile(token: dict = Depends(require_auth_token)) -> UserProfile:
     """Return the user profile for the current authenticated user."""
-    uid = token.get("uid")
+    uid = str(token.get("uid", ""))
     if is_firebase_ok():
         doc = doc_get("users", uid)
         if doc:
@@ -63,7 +63,7 @@ async def update_user_profile(
     token: dict = Depends(require_auth_token),
 ) -> UserProfile:
     """Update the user profile for the current user."""
-    uid = token.get("uid")
+    uid = str(token.get("uid", ""))
     current = await get_user_profile(token=token)
     updated_dict = current.model_dump()
 

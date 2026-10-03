@@ -5,6 +5,7 @@ import { Logo } from '../components/Logo';
 import { Button } from '../components/ui';
 import { Field } from '../components/FormFields';
 import { useAuth } from '../context/AuthContext';
+import { useAppData } from '../context/AppDataContext';
 import { cn } from '../lib/format';
 
 const steps = ['Business profile', 'Jurisdictions', 'Regulatory domains', 'Review'];
@@ -27,6 +28,7 @@ function OptionPill({ active, children, onClick }: { active: boolean; children: 
 
 export default function Onboarding() {
   const { completeOnboarding } = useAuth();
+  const { business, updateBusiness } = useAppData();
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [form, setForm] = useState({
@@ -42,7 +44,15 @@ export default function Onboarding() {
   const toggle = (value: string, list: string[], setList: (v: string[]) => void) =>
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
-  function finish() {
+  async function finish() {
+    await updateBusiness({
+      ...(business || {}),
+      name: form.name,
+      entity: form.entity,
+      sector: form.sector,
+      employees: parseInt(form.employees, 10) || 0,
+      jurisdiction: jurisdictions.join(', '),
+    }).catch(() => {});
     completeOnboarding();
     navigate('/app/overview', { replace: true });
   }
