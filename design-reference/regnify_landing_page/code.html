@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#115e59","surface-container-low":"#ecf6f2","inverse-on-surface":"#e9f3ef","on-primary-container":"#91d5ce","on-background":"#141d1b","secondary-fixed-dim":"#4fdbc8","outline-variant":"#bec9c7","inverse-primary":"#8fd3cc","on-primary-fixed":"#00201e","background":"#f2fcf8","on-secondary-fixed":"#00201c","on-tertiary-container":"#c3c3ff","surface-container-lowest":"#ffffff","secondary":"#006b5f","on-error-container":"#93000a","on-primary":"#ffffff","surface-tint":"#216963","tertiary-container":"#3e3ecb","primary-fixed-dim":"#8fd3cc","surface-container":"#e6f0ec","on-primary-fixed-variant":"#00504b","outline":"#6f7977","on-tertiary":"#ffffff","on-tertiary-fixed":"#07006c","on-tertiary-fixed-variant":"#2f2ebe","tertiary-fixed":"#e1e0ff","inverse-surface":"#293230","secondary-fixed":"#71f8e4","error":"#ba1a1a","on-secondary-fixed-variant":"#005048","surface-variant":"#dbe5e1","surface-container-highest":"#dbe5e1","tertiary-fixed-dim":"#c0c1ff","tertiary":"#221eb5","error-container":"#ffdad6","primary-fixed":"#abefe8","primary":"#004541","on-surface":"#141d1b","secondary-container":"#6df5e1","on-secondary-container":"#006f64","surface-bright":"#f2fcf8","surface":"#f2fcf8","on-error":"#ffffff","on-secondary":"#ffffff","surface-container-high":"#e0eae7","surface-dim":"#d2dcd9","on-surface-variant":"#3f4947"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-xs":"0.25rem","space-sm":"0.5rem",margin:"2rem","gutter-mobile":"1rem","margin-mobile":"1rem","space-lg":"1.5rem",gutter:"1.5rem","space-md":"1rem","space-xl":"2.5rem"},fontFamily:{"body-sm":["Manrope"],"headline-xl-mobile":["Newsreader"],"body-md":["Manrope"],"label-md":["Manrope"],"code-tabular":["Manrope"],"label-sm":["Manrope"],"headline-lg":["Newsreader"],"headline-md":["Newsreader"],"headline-sm":["Newsreader"],"body-lg":["Manrope"],"headline-xl":["Newsreader"],"headline-lg-mobile":["Newsreader"]},fontSize:{"body-sm":["0.8125rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-xl-mobile":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.015em",fontWeight:"500"}],"body-md":["0.9375rem",{lineHeight:"1.5rem",fontWeight:"400"}],"label-md":["0.8125rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"600"}],"code-tabular":["0.8125rem",{lineHeight:"1.125rem",fontWeight:"500"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.06em",fontWeight:"700"}],"headline-lg":["1.875rem",{lineHeight:"2.375rem",letterSpacing:"-0.015em",fontWeight:"500"}],"headline-md":["1.375rem",{lineHeight:"1.875rem",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",fontWeight:"600"}],"body-lg":["1.125rem",{lineHeight:"1.75rem",fontWeight:"400"}],"headline-xl":["2.5rem",{lineHeight:"3rem",letterSpacing:"-0.02em",fontWeight:"500"}],"headline-lg-mobile":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.01em",fontWeight:"500"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between"><div class="flex items-center gap-3"><img alt="Regnify Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UAP_ssbOx20KmpzOpZkpBu9AR7JoYafANcAevqjt2VdEJXPzLo2zTf0XM6lKBpv5wduHOjEwj2NIhR8yWQWcrNzxLil1vm7qIh18xpOVJI9XgIKs0R_fleFaFJt-ui-hZMkhMfPcQag00B74LDPuN8slT581WvZnCKQ20iZjc4xeDvsyAebqs8BF1DmJQHpgFor2VZq85iLZC4WMaVM66WX3e1v06jqE730DoLD2vhLAkAmT8uRj3qiA"/><span class="font-headline-md text-headline-md text-primary tracking-tight">Regnify</span></div><nav class="hidden md:flex items-center gap-8" data-active-classes="bg-surface-container text-primary font-label-md rounded"><a aria-current="page" class="transition-colors bg-surface-container text-primary font-label-md rounded" data-path="product" href="#">Product</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#">How It Works</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="features" href="#">Features</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="resources" href="#">Resources</a></nav><div class="flex items-center gap-4"><a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors px-3 py-2" data-path="login" href="#">Login</a><a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-primary-container transition-all shadow-[0_1px_4px_rgba(0,69,65,0.15)]" data-path="login" href="#">Get Started</a></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-surface py-20 px-6 lg:px-12">
+<!-- Architectural Grid Background Glow -->
+<div class="absolute inset-0 pointer-events-none bg-[radial-gradient(#115e59_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+<div class="absolute top-12 right-12 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+<!-- Authority Sub-Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md mb-6 shadow-sm">
+<span class="material-symbols-outlined text-primary text-base">verified_user</span>
+<span>Statutory Monitoring &amp; Autonomous Compliance Intelligence</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight max-w-4xl text-balance">
+        Know the Change. Take Action.
+      </h1>
+<p class="mt-6 font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed text-balance">
+        Regnify continuously monitors regulatory updates, synthesizes what changed, maps exact enterprise relevancy, and converts dense government notifications into prioritized compliance tasks.
+      </p>
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container transition-all" href="#demo-preview">
+<span>Get Started Free</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container transition-all" href="#how-it-works">
+<span class="material-symbols-outlined text-base text-primary">play_circle</span>
+<span>See How It Works</span>
+</a>
+</div>
+<!-- Trust Metrics Bar -->
+<div class="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl pt-6 bg-surface-container-low/60 rounded-xl p-4 shadow-sm backdrop-blur-sm">
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary">140+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Official Gazettes &amp; Portals</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary">&lt; 15 mins</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Gazette-to-Dossier Speed</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary">99.8%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Entity Parsing Accuracy</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-primary">Zero</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Regulatory Blindspots</span>
+</div>
+</div>
+<!-- Interactive Process Pipeline Visualization -->
+<div class="mt-14 w-full bg-surface-container-lowest rounded-xl shadow-md p-6 lg:p-8 text-left">
+<div class="flex items-center justify-between pb-4">
+<div class="flex items-center gap-2">
+<span class="h-2.5 w-2.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase text-primary tracking-wider">Live Pipeline Telemetry</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">Active Sync: Gazette Ref #2025-089A</span>
+</div>
+<!-- 6 Step Pipeline Flow -->
+<div class="grid grid-cols-1 md:grid-cols-6 gap-3 pt-2">
+<!-- Step 1 -->
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">01. INGEST</span>
+<span class="material-symbols-outlined text-sm text-primary">account_balance</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Gov Portals</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">MCA, CBIC, Labour &amp; CPCB APIs</p>
+<div class="mt-3 flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+<span class="font-label-sm text-label-sm">Polled 3m ago</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">02. DETECT</span>
+<span class="material-symbols-outlined text-sm text-primary">notifications_active</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">New Circular</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cir. 44/2025: Safety Equipment Rule 11B</p>
+<div class="mt-3 flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-xs">sync</span>
+<span class="font-label-sm text-label-sm">Delta Flagged</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col p-3 rounded-lg bg-primary/5 transition-all hover:bg-primary/10">
+<div class="flex items-center justify-between text-primary mb-2">
+<span class="font-label-sm text-label-sm">03. EXTRACT</span>
+<span class="material-symbols-outlined text-sm text-primary">psychology</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-semibold">Legal NLP</p>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">Entities: Heavy Machinery, Section 4A audit</p>
+<div class="mt-3 flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-xs">auto_awesome</span>
+<span class="font-label-sm text-label-sm">LLM Parsed</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">04. MATCH</span>
+<span class="material-symbols-outlined text-sm text-primary">corporate_fare</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Your Entities</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Matches Pune &amp; Manesar Plant Units</p>
+<div class="mt-3 flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-xs">tune</span>
+<span class="font-label-sm text-label-sm">98% Fit Score</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-low transition-all hover:bg-surface-container">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm">05. DIRECT</span>
+<span class="material-symbols-outlined text-sm text-primary">assignment_turned_in</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Action Created</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Recalibrate Pressure Valves &amp; Log Logbook</p>
+<div class="mt-3 flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-xs">alarm</span>
+<span class="font-label-sm text-label-sm">Due in 18d</span>
+</div>
+</div>
+<!-- Step 6 -->
+<div class="flex flex-col p-3 rounded-lg bg-secondary-container/40 transition-all hover:bg-secondary-container/60">
+<div class="flex items-center justify-between text-on-secondary-container mb-2">
+<span class="font-label-sm text-label-sm">06. AUDIT</span>
+<span class="material-symbols-outlined text-sm text-primary">task_alt</span>
+</div>
+<p class="font-label-md text-label-md text-on-secondary-container font-semibold">Full Shield</p>
+<p class="font-body-sm text-body-sm text-on-secondary-container mt-1">Automated immutable audit trail compiled</p>
+<div class="mt-3 flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-xs">verified</span>
+<span class="font-label-sm text-label-sm">100% Verified</span>
+</div>
+</div>
+</div>
+<!-- 4 Sample Mini Dossier Chips -->
+<div class="mt-6 pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="p-3 rounded bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-xs bg-surface-container text-primary font-label-sm">CBIC • Tax</span>
+<span class="text-xs text-error font-medium">Critical</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface line-clamp-1 font-semibold">GST Notification 14/2025</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Reverse charge mandates on B2B logistics tech.</p>
+</div>
+<div class="p-3 rounded bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-xs bg-surface-container text-primary font-label-sm">Labour • Safety</span>
+<span class="text-xs text-secondary font-medium">High</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface line-clamp-1 font-semibold">Factory Safety Mandate 2025</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Autonomous fire suppression in warehousing.</p>
+</div>
+<div class="p-3 rounded bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-xs bg-surface-container text-primary font-label-sm">Ministry • Wages</span>
+<span class="text-xs text-on-surface-variant font-medium">Standard</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface line-clamp-1 font-semibold">Labour Wage Rule Revision</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Variable dearness allowance index update.</p>
+</div>
+<div class="p-3 rounded bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded text-xs bg-surface-container text-primary font-label-sm">CPCB • Green</span>
+<span class="text-xs text-secondary font-medium">High</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface line-clamp-1 font-semibold">Filter Standards 2025</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">HEPA Grade-4 scrubber thresholds for plants.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROBLEM VS SOLUTION CONTRAST SECTION -->
+<section class="w-full bg-surface-container-low py-20 px-6 lg:px-12">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Structural Friction</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+          Regulatory Change Shouldn’t Threaten Business Velocity
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">
+          Compliance officers lose 18 hours weekly decrypting opaque legal bulletins. Here is how Regnify resolves the structural operational bottleneck.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+<!-- The Problem -->
+<div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-2 h-full bg-error"></div>
+<div>
+<div class="flex items-center gap-3 text-error mb-4">
+<span class="material-symbols-outlined text-2xl">error_outline</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-bold">The Conventional Struggle</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">
+              Scattered Silos, 80-Page PDFs, and Guesswork
+            </h3>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-lg mt-0.5 shrink-0">close</span>
+<span><strong>Disparate Monitor Overload:</strong> Legal teams manually scrape 40+ gazette sites every day.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-lg mt-0.5 shrink-0">close</span>
+<span><strong>Dense Statutory Language:</strong> Ambiguous cross-amendments require costly outside counsel consultations.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-lg mt-0.5 shrink-0">close</span>
+<span><strong>Ambiguous Applicability:</strong> No clear signal whether an update applies to your state, factory size, or revenue band.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-lg mt-0.5 shrink-0">close</span>
+<span><strong>Late Discovery &amp; Penalties:</strong> Teams discover new mandates weeks late, forcing panic remediation and fines.</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 bg-error-container/20 rounded-lg p-4 text-on-surface">
+<div class="flex items-center gap-2 text-error font-label-md text-label-md">
+<span class="material-symbols-outlined text-base">warning</span>
+<span>Outcome: Statutory Non-Compliance &amp; Operational Delays</span>
+</div>
+</div>
+</div>
+<!-- The Solution -->
+<div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+<div>
+<div class="flex items-center gap-3 text-primary mb-4">
+<span class="material-symbols-outlined text-2xl">verified</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-bold">The Regnify Method</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">
+              Continuous Intelligence, Precision AI, and Instant Action
+            </h3>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 shrink-0">check</span>
+<span><strong>Unified Ingestion Engine:</strong> 140+ federal, state, and departmental sources scraped and timestamped in real time.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 shrink-0">check</span>
+<span><strong>Plain-Language AI Syntheses:</strong> High-precision legal NLP breaks 80-page notifications into 3-sentence executive briefings.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 shrink-0">check</span>
+<span><strong>Profile-Aware Relevancy:</strong> Dynamic filtering by jurisdictional footprint, plant locations, and business tier.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5 shrink-0">check</span>
+<span><strong>Delegated Task Automation:</strong> Directly dispatch compliance workflows to plant managers with scheduled reminders.</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 bg-surface-container-high rounded-lg p-4 text-primary">
+<div class="flex items-center gap-2 font-label-md text-label-md">
+<span class="material-symbols-outlined text-base text-primary">shield</span>
+<span>Outcome: Zero-Friction Compliance &amp; Total Legal Readiness</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MAJOR 6-STAGE INFOGRAPHIC: "From Government Change to Business Action" -->
+<section class="w-full bg-surface py-24 px-6 lg:px-12" id="how-it-works">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">The Intelligence Architecture</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+          From Government Change to Business Action
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">
+          Regnify transforms raw, unstructured regulatory notices into actionable operational tasks across six synchronized stages.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Stage 01 -->
+<div class="p-8 rounded-xl bg-surface-container-low shadow-sm relative group hover:shadow-md transition-shadow">
+<span class="font-headline-xl text-headline-xl text-primary/20 absolute top-4 right-6 font-bold">01</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-2xl">public</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Government Sources</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Automated statutory spiders monitor official gazettes, ministerial portals, tribunal boards, and departmental bulletins 24/7.
+          </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Federal Gazettes</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">State Portals</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Circulars</span>
+</div>
+</div>
+<!-- Stage 02 -->
+<div class="p-8 rounded-xl bg-surface-container-low shadow-sm relative group hover:shadow-md transition-shadow">
+<span class="font-headline-xl text-headline-xl text-primary/20 absolute top-4 right-6 font-bold">02</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-2xl">radar</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Regnify Detects</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            New statutory notifications are registered within minutes. Diff analysis flags amended sub-sections, newly added schedules, and repealed provisions.
+          </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Real-time Ingest</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">OCR Normalization</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Diff Engine</span>
+</div>
+</div>
+<!-- Stage 03 -->
+<div class="p-8 rounded-xl bg-surface-container-low shadow-sm relative group hover:shadow-md transition-shadow">
+<span class="font-headline-xl text-headline-xl text-primary/20 absolute top-4 right-6 font-bold">03</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-2xl">psychology_alt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">AI Understands</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Specialized legal LLMs extract key entities: the issuing regulatory body, implementation deadlines, liability thresholds, and direct compliance obligations.
+          </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Legal Summaries</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Entity Extraction</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Clause Parsing</span>
+</div>
+</div>
+<!-- Stage 04 -->
+<div class="p-8 rounded-xl bg-surface-container-low shadow-sm relative group hover:shadow-md transition-shadow">
+<span class="font-headline-xl text-headline-xl text-primary/20 absolute top-4 right-6 font-bold">04</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-2xl">schema</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Business Matching</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Every update is compared against your organization profile—matching your operating jurisdictions, industrial classification, workforce size, and license types.
+          </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">State &amp; City Filter</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Sector Profiling</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Noise Filtration</span>
+</div>
+</div>
+<!-- Stage 05 -->
+<div class="p-8 rounded-xl bg-surface-container-low shadow-sm relative group hover:shadow-md transition-shadow">
+<span class="font-headline-xl text-headline-xl text-primary/20 absolute top-4 right-6 font-bold">05</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-2xl">checklist</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Action Required</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Instead of raw legal texts, users receive clear operational instructions: updated filing templates, equipment check schedules, and contract review flags.
+          </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Task Generation</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Role Assignment</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Due Dates</span>
+</div>
+</div>
+<!-- Stage 06 -->
+<div class="p-8 rounded-xl bg-surface-container-low shadow-sm relative group hover:shadow-md transition-shadow">
+<span class="font-headline-xl text-headline-xl text-primary/20 absolute top-4 right-6 font-bold">06</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm mb-6">
+<span class="material-symbols-outlined text-2xl">inventory</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Track Compliance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Live dashboards track multi-facility progress, compile immutable audit registers, and provide board-ready compliance reports at a single click.
+          </p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Audit Trails</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Proof Storage</span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-xs text-on-surface-variant font-label-sm">Board Briefs</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI DOCUMENT EXTRACTION INFOGRAPHIC -->
+<section class="w-full bg-surface-container-low py-20 px-6 lg:px-12">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Autonomous Neural Parser</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+          Deconstructing Complex Gazettes into Structured Directives
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">
+          See how Regnify’s legal parser dissects an official government gazette, isolating critical compliance clauses in milliseconds.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- PDF Gazette Preview Panel (Left 6 Cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-6 rounded-xl shadow-md relative overflow-hidden">
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-xl">picture_as_pdf</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">MINISTRY_OF_LABOUR_NOTIF_882.pdf</span>
+</div>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">Official Gazette No. 412</span>
+</div>
+<!-- Document Snippet with Highlight Tags -->
+<div class="pt-6 font-serif text-sm leading-relaxed text-on-surface-variant/90 select-none space-y-4">
+<p class="font-bold text-center text-on-surface tracking-wider text-xs uppercase">
+              The Gazette of India • Extraordinary • Part II — Section 3
+            </p>
+<p>
+              In exercise of the powers conferred by section 112 of the Factories Act, the Central Government hereby notifies amendments to the occupational workplace parameters.
+            </p>
+<!-- Highlighted Clause 1: Authority & Scope -->
+<div class="p-2 rounded bg-primary/10 text-on-surface relative">
+<span class="absolute -top-2.5 right-2 px-1.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-[10px]">PARSED: JURISDICTION</span>
+              “...applicable to all industrial chemical manufacturing units operating with over fifty (50) connected workers within Special Economic Zones.”
+            </div>
+<p>
+              Every occupier shall install automated multi-stage vapour recovery systems complying with ISO-14034 standards within their cooling exhausts.
+            </p>
+<!-- Highlighted Clause 2: Deadline & Action -->
+<div class="p-2 rounded bg-secondary/15 text-on-surface relative">
+<span class="absolute -top-2.5 right-2 px-1.5 py-0.5 rounded bg-secondary text-on-primary font-label-sm text-[10px]">PARSED: STATUTORY DEADLINE</span>
+              “All installations must be verified through third-party accredited audit before the 31st Day of October 2025.”
+            </div>
+<!-- Highlighted Clause 3: Penalty -->
+<div class="p-2 rounded bg-error/10 text-on-surface relative">
+<span class="absolute -top-2.5 right-2 px-1.5 py-0.5 rounded bg-error text-on-error font-label-sm text-[10px]">PARSED: PENALTY CLAUSE</span>
+              “Failure to register verification logs will incur a daily default charge of INR 25,000 and temporary suspension of operating licence.”
+            </div>
+</div>
+</div>
+<!-- Structured Extraction Card (Right 6 Cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest p-8 rounded-xl shadow-md">
+<div class="flex items-center gap-2 text-primary mb-4">
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider">Regnify Extraction Engine Output</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">
+            Structured Operational Directive
+          </h3>
+<div class="space-y-4">
+<div class="p-3.5 rounded-lg bg-surface-container-low flex items-start gap-4">
+<div class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">account_balance</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Issuing Authority</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Ministry of Labour &amp; Employment • Central</p>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex items-start gap-4">
+<div class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">factory</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Applicable Profile</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Chemical Mfg • Facilities &gt; 50 Workers • SEZ Units</p>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex items-start gap-4">
+<div class="w-8 h-8 rounded bg-secondary/15 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">task_alt</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Required Action</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Deploy ISO-14034 Vapour Recovery &amp; Commission Audit</p>
+</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low flex items-start gap-4">
+<div class="w-8 h-8 rounded bg-error/10 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-base">schedule</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Hard Deadline</span>
+<p class="font-label-md text-label-md text-error font-semibold">October 31, 2025 • Penalty: ₹25,000/day + Licence Risk</p>
+</div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Target Unit Match: <strong>Plant 03 (Gujarat SEZ)</strong></span>
+<span class="px-3 py-1 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">Action Created</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LIVE PRODUCT PREVIEW SECTION -->
+<section class="w-full bg-surface py-20 px-6 lg:px-12" id="demo-preview">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Executive Interface</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+            The Regnify Overview Dashboard
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xl">
+            A high-contrast regulatory triage environment designed for General Counsels, Risk Officers, and Facility Compliance Leads.
+          </p>
+</div>
+<div class="mt-4 md:mt-0 flex items-center gap-3">
+<span class="px-3 py-1.5 rounded-lg bg-surface-container-high font-label-md text-label-md text-primary flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-secondary"></span>
+            Simulated Production Instance
+          </span>
+</div>
+</div>
+<!-- Live Dashboard Container Mockup -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-6 lg:p-8">
+<!-- Top Metrics Triage Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+<div class="p-5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">New Notifications</span>
+<div class="flex items-baseline gap-2 mt-3">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">12</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">past 24h</span>
+</div>
+<div class="mt-2 text-xs text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">arrow_upward</span>
+<span>4 from Central ministries</span>
+</div>
+</div>
+<div class="p-5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Profile Relevant</span>
+<div class="flex items-baseline gap-2 mt-3">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">7</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">matched 100%</span>
+</div>
+<div class="mt-2 text-xs text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">filter_alt</span>
+<span>5 filtered out as irrelevant</span>
+</div>
+</div>
+<div class="p-5 rounded-lg bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Action Required</span>
+<div class="flex items-baseline gap-2 mt-3">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">4</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">tasks open</span>
+</div>
+<div class="mt-2 text-xs text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">assignment</span>
+<span>2 awaiting documentation</span>
+</div>
+</div>
+<div class="p-5 rounded-lg bg-error-container/20 flex flex-col justify-between">
+<span class="font-label-sm text-label-sm uppercase text-error font-semibold">Due Soon</span>
+<div class="flex items-baseline gap-2 mt-3">
+<span class="font-headline-xl text-headline-xl text-error font-bold">2</span>
+<span class="font-body-sm text-body-sm text-error/80">within 14 days</span>
+</div>
+<div class="mt-2 text-xs text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Immediate escalation active</span>
+</div>
+</div>
+</div>
+<!-- Signature "Why This Matters to You" Container -->
+<div class="w-full bg-surface-container-low rounded-xl p-6 lg:p-8 relative overflow-hidden mb-8">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">SIGNATURE INTELLIGENCE ENGINE</span>
+<span class="font-code-tabular text-code-tabular text-on-surface-variant">Analysis ID: #RN-8921-X</span>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm font-bold">99.4% Match Accuracy</span>
+</div>
+<div class="pt-6">
+<h3 class="font-headline-md text-headline-md text-primary">
+              Why This Matters to Your Enterprise
+            </h3>
+<p class="font-body-md text-body-md text-on-surface mt-2 max-w-3xl leading-relaxed">
+              Your registered entity “Nova Logistics Corp” holds cross-border bonded warehouse authorizations in Maharashtra and Gujarat. The newly published CBIC Circular 14/2025 mandates digital GPS e-seals on all inter-facility transfers exceeding 15 kilometers, effective November 1st.
+            </p>
+</div>
+<!-- Connected Horizontal Trajectory -->
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-4 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">01. Gov Notice</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold mt-1">CBIC Cir. 14/2025</p>
+<span class="text-xs text-on-surface-variant mt-0.5">Gazetted Oct 12</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase">02. Profile Match</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Bonded Logistics</p>
+<span class="text-xs text-on-surface-variant mt-0.5">MH &amp; GJ Hubs</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface uppercase">03. Specific Impact</span>
+<p class="font-label-md text-label-md text-on-surface font-semibold mt-1">RFID GPS E-Seals</p>
+<span class="text-xs text-on-surface-variant mt-0.5">Required on 42 trucks</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase">04. Action Item</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Procure Hardware</p>
+<span class="text-xs text-on-surface-variant mt-0.5">Assigned to Fleet Lead</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-error uppercase">05. Deadline</span>
+<p class="font-label-md text-label-md text-error font-semibold mt-1">Nov 01, 2025</p>
+<span class="text-xs text-error mt-0.5">14 Days Remaining</span>
+</div>
+</div>
+</div>
+<!-- Active Statutory Feed Table -->
+<div class="w-full">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-headline-sm text-headline-sm text-primary">Priority Regulatory Stream</h4>
+<span class="font-label-md text-label-md text-primary hover:underline cursor-pointer">View All 12 Updates →</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="text-on-surface-variant font-label-sm uppercase border-b border-surface-container">
+<th class="py-3 px-4">Authority &amp; Ref</th>
+<th class="py-3 px-4">Subject Matter</th>
+<th class="py-3 px-4">Entity Match</th>
+<th class="py-3 px-4">Operational Status</th>
+<th class="py-3 px-4 text-right">Statutory Due</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-on-surface">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 font-semibold text-primary">
+                    CBIC • Notif 14/2025
+                    <div class="text-xs font-normal text-on-surface-variant">Customs / Indirect Tax</div>
+</td>
+<td class="py-4 px-4">
+                    Mandatory RFID GPS e-seal verification on bonded transshipments
+                  </td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded text-xs bg-primary/10 text-primary font-semibold">Nova Logistics (MH, GJ)</span>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded text-xs bg-surface-container-high text-on-surface font-semibold">Vendor RFP Issued</span>
+</td>
+<td class="py-4 px-4 text-right font-code-tabular text-error font-semibold">01 Nov 2025</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 font-semibold text-primary">
+                    MoEFCC • S.O. 4112(E)
+                    <div class="text-xs font-normal text-on-surface-variant">Environmental Protection</div>
+</td>
+<td class="py-4 px-4">
+                    Continuous Emission Monitoring Systems (CEMS) telemetry telemetry calibration
+                  </td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded text-xs bg-primary/10 text-primary font-semibold">Pune Unit 01</span>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded text-xs bg-secondary-container/40 text-secondary font-semibold">Calibration Completed</span>
+</td>
+<td class="py-4 px-4 text-right font-code-tabular text-on-surface-variant">15 Dec 2025</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-4 font-semibold text-primary">
+                    MCA • General Cir. 03/2025
+                    <div class="text-xs font-normal text-on-surface-variant">Corporate Governance</div>
+</td>
+<td class="py-4 px-4">
+                    Revised disclosures on significant beneficial ownership (SBO) filings
+                  </td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded text-xs bg-surface-container text-on-surface-variant font-semibold">All Registered Subsidiaries</span>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded text-xs bg-surface-container-high text-on-surface font-semibold">Under Legal Audit</span>
+</td>
+<td class="py-4 px-4 text-right font-code-tabular text-on-surface-variant">30 Jan 2026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMPLIANCE WORKFLOW INFOGRAPHIC SECTION -->
+<section class="w-full bg-surface-container-low py-20 px-6 lg:px-12">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">End-to-End Governance</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-2">
+          The Closed-Loop Compliance Workflow
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">
+          How continuous regulation translates directly into institutional resilience without missing a beat.
+        </p>
+</div>
+<!-- Linear Step Sequence -->
+<div class="relative w-full overflow-x-auto pb-6">
+<div class="min-w-[800px] flex items-center justify-between gap-4">
+<!-- Step 1 -->
+<div class="flex-1 bg-surface-container-lowest p-5 rounded-xl shadow-sm text-center">
+<div class="w-10 h-10 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-lg">gavel</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">01. Mandate</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Regulation</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">arrow_forward</span>
+<!-- Step 2 -->
+<div class="flex-1 bg-surface-container-lowest p-5 rounded-xl shadow-sm text-center">
+<div class="w-10 h-10 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-lg">rule</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">02. Specifics</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Requirement</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">arrow_forward</span>
+<!-- Step 3 -->
+<div class="flex-1 bg-surface-container-lowest p-5 rounded-xl shadow-sm text-center">
+<div class="w-10 h-10 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-lg">directions_run</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">03. Directive</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Action</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">arrow_forward</span>
+<!-- Step 4 -->
+<div class="flex-1 bg-surface-container-lowest p-5 rounded-xl shadow-sm text-center">
+<div class="w-10 h-10 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-lg">checklist</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">04. Assignment</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Task</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">arrow_forward</span>
+<!-- Step 5 -->
+<div class="flex-1 bg-surface-container-lowest p-5 rounded-xl shadow-sm text-center">
+<div class="w-10 h-10 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-lg">alarm</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">05. Timeline</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Deadline</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">arrow_forward</span>
+<!-- Step 6 -->
+<div class="flex-1 bg-surface-container-lowest p-5 rounded-xl shadow-sm text-center">
+<div class="w-10 h-10 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-lg">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">06. Shield</span>
+<p class="font-label-md text-label-md text-primary font-semibold mt-1">Compliance 100%</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL CTA BANNER -->
+<section class="w-full bg-primary py-20 px-6 lg:px-12 text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none bg-[radial-gradient(#abefe8_1px,transparent_1px)] [background-size:24px_24px] opacity-10"></div>
+<div class="max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
+<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase tracking-wider mb-6">
+        Continuous Regulatory Readiness
+      </span>
+<h2 class="font-headline-xl text-headline-xl tracking-tight text-balance max-w-3xl">
+        Stay Ahead of Regulatory Change. Protect Your Business Today.
+      </h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mt-4 leading-relaxed text-balance">
+        Join leading GCs, Chief Compliance Officers, and corporate risk directors who have eliminated regulatory blindspots with autonomous intelligence.
+      </p>
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+<a class="px-8 py-3.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-lg hover:bg-surface-container-high transition-all" href="#">
+          Get Started With Regnify
+        </a>
+<a class="px-8 py-3.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary-container/80 transition-all" href="#how-it-works">
+          Explore Platform Architecture
+        </a>
+</div>
+<div class="mt-12 flex flex-wrap items-center justify-center gap-8 text-on-primary-container text-sm">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">check_circle</span>
+          No credit card required
+        </span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">check_circle</span>
+          Instant jurisdictional profile matching
+        </span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">check_circle</span>
+          Enterprise SOC-2 ready
+        </span>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low pt-16 pb-12 mt-12"><div class="max-w-7xl mx-auto px-6 lg:px-12"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12"><div class="space-y-4"><div class="flex items-center gap-3"><img alt="Regnify Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UAP_ssbOx20KmpzOpZkpBu9AR7JoYafANcAevqjt2VdEJXPzLo2zTf0XM6lKBpv5wduHOjEwj2NIhR8yWQWcrNzxLil1vm7qIh18xpOVJI9XgIKs0R_fleFaFJt-ui-hZMkhMfPcQag00B74LDPuN8slT581WvZnCKQ20iZjc4xeDvsyAebqs8BF1DmJQHpgFor2VZq85iLZC4WMaVM66WX3e1v06jqE730DoLD2vhLAkAmT8uRj3qiA"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Regnify</span></div><p class="font-headline-sm text-headline-sm text-on-surface font-medium leading-snug">Know the Change. Take Action.</p><p class="font-body-sm text-body-sm text-on-surface-variant">Autonomous regulatory intelligence platform monitoring legislative shifts, circulars, and notifications into decisive operational mandates.</p></div><div><h4 class="font-label-sm text-label-sm uppercase tracking-wider text-primary mb-4">Product</h4><ul class="space-y-2.5"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview" href="#">Dashboard</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="regulations" href="#">Regulations</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="alerts" href="#">Alerts</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="compliance" href="#">Compliance</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="ai-assistant" href="#">AI Assistant</a></li></ul></div><div><h4 class="font-label-sm text-label-sm uppercase tracking-wider text-primary mb-4">Resources</h4><ul class="space-y-2.5"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="how-it-works" href="#">How It Works</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="documentation" href="#">Documentation</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="regulatory-intelligence" href="#">Regulatory Intelligence</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="help-center" href="#">Help Center</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="faq" href="#">FAQ</a></li></ul></div><div><h4 class="font-label-sm text-label-sm uppercase tracking-wider text-primary mb-4">Company</h4><ul class="space-y-2.5"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">About</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">Contact</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="careers" href="#">Careers</a></li></ul></div><div><h4 class="font-label-sm text-label-sm uppercase tracking-wider text-primary mb-4">Legal</h4><ul class="space-y-2.5"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy" href="#">Privacy</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="terms" href="#">Terms</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-on-surface transition-colors" data-path="disclaimer" href="#">Disclaimer</a></li></ul></div></div><div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Regnify Inc. All rights reserved.</p><p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl text-center md:text-right">Regnify provides regulatory information and AI-generated explanations for informational purposes. It does not replace professional legal or compliance advice.</p></div></div></footer></body></html>

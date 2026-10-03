@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-container":"#115e59","surface-container-low":"#ecf6f2","inverse-on-surface":"#e9f3ef","on-primary-container":"#91d5ce","on-background":"#141d1b","secondary-fixed-dim":"#4fdbc8","outline-variant":"#bec9c7","inverse-primary":"#8fd3cc","on-primary-fixed":"#00201e","background":"#f2fcf8","on-secondary-fixed":"#00201c","on-tertiary-container":"#c3c3ff","surface-container-lowest":"#ffffff","secondary":"#006b5f","on-error-container":"#93000a","on-primary":"#ffffff","surface-tint":"#216963","tertiary-container":"#3e3ecb","primary-fixed-dim":"#8fd3cc","surface-container":"#e6f0ec","on-primary-fixed-variant":"#00504b","outline":"#6f7977","on-tertiary":"#ffffff","on-tertiary-fixed":"#07006c","on-tertiary-fixed-variant":"#2f2ebe","tertiary-fixed":"#e1e0ff","inverse-surface":"#293230","secondary-fixed":"#71f8e4","error":"#ba1a1a","on-secondary-fixed-variant":"#005048","surface-variant":"#dbe5e1","surface-container-highest":"#dbe5e1","tertiary-fixed-dim":"#c0c1ff","tertiary":"#221eb5","error-container":"#ffdad6","primary-fixed":"#abefe8","primary":"#004541","on-surface":"#141d1b","secondary-container":"#6df5e1","on-secondary-container":"#006f64","surface-bright":"#f2fcf8","surface":"#f2fcf8","on-error":"#ffffff","on-secondary":"#ffffff","surface-container-high":"#e0eae7","surface-dim":"#d2dcd9","on-surface-variant":"#3f4947"},borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},spacing:{"space-xs":"0.25rem","space-sm":"0.5rem",margin:"2rem","gutter-mobile":"1rem","margin-mobile":"1rem","space-lg":"1.5rem",gutter:"1.5rem","space-md":"1rem","space-xl":"2.5rem"},fontFamily:{"body-sm":["Manrope"],"headline-xl-mobile":["Newsreader"],"body-md":["Manrope"],"label-md":["Manrope"],"code-tabular":["Manrope"],"label-sm":["Manrope"],"headline-lg":["Newsreader"],"headline-md":["Newsreader"],"headline-sm":["Newsreader"],"body-lg":["Manrope"],"headline-xl":["Newsreader"],"headline-lg-mobile":["Newsreader"]},fontSize:{"body-sm":["0.8125rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-xl-mobile":["2rem",{lineHeight:"2.5rem",letterSpacing:"-0.015em",fontWeight:"500"}],"body-md":["0.9375rem",{lineHeight:"1.5rem",fontWeight:"400"}],"label-md":["0.8125rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"600"}],"code-tabular":["0.8125rem",{lineHeight:"1.125rem",fontWeight:"500"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.06em",fontWeight:"700"}],"headline-lg":["1.875rem",{lineHeight:"2.375rem",letterSpacing:"-0.015em",fontWeight:"500"}],"headline-md":["1.375rem",{lineHeight:"1.875rem",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",fontWeight:"600"}],"body-lg":["1.125rem",{lineHeight:"1.75rem",fontWeight:"400"}],"headline-xl":["2.5rem",{lineHeight:"3rem",letterSpacing:"-0.02em",fontWeight:"500"}],"headline-lg-mobile":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.01em",fontWeight:"500"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between py-5 px-3 shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="flex flex-col gap-6"><div class="px-3 flex items-center justify-between"><div class="flex items-center gap-3"><img alt="Regnify Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UAP_ssbOx20KmpzOpZkpBu9AR7JoYafANcAevqjt2VdEJXPzLo2zTf0XM6lKBpv5wduHOjEwj2NIhR8yWQWcrNzxLil1vm7qIh18xpOVJI9XgIKs0R_fleFaFJt-ui-hZMkhMfPcQag00B74LDPuN8slT581WvZnCKQ20iZjc4xeDvsyAebqs8BF1DmJQHpgFor2VZq85iLZC4WMaVM66WX3e1v06jqE730DoLD2vhLAkAmT8uRj3qiA"/><span class="font-headline-md text-headline-md text-primary tracking-tight">Regnify</span></div><span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface text-lg">dock_to_left</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a aria-current="page" class="flex items-center justify-between px-3 py-2.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="overview" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Overview</span></div></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="regulations" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">menu_book</span><span>Regulations</span></div><span class="bg-secondary-container text-on-secondary-container font-code-tabular text-label-sm px-2 py-0.5 rounded-full font-bold">12 New</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="alerts" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">notifications_active</span><span>Alerts</span></div><span class="bg-error text-on-error font-code-tabular text-label-sm px-2 py-0.5 rounded-full font-bold">4</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="compliance" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">verified</span><span>Compliance</span></div><span class="text-secondary font-code-tabular text-label-sm font-semibold">78%</span></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="calendar" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">calendar_today</span><span>Calendar</span></div></a><a class="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="ai-assistant" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-tertiary-container">auto_awesome</span><span>AI Assistant</span></div><span class="flex h-2 w-2 rounded-full bg-tertiary-container"></span></a></nav></div><div class="flex flex-col gap-1 pt-4 border-t border-surface-container-high"><a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="business-profile" href="#"><span class="material-symbols-outlined text-[20px]">domain</span><span>Business Profile</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a><a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="help-and-support" href="#"><span class="material-symbols-outlined text-[20px]">help</span><span>Help &amp; Support</span></a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-6"><div class="flex-1 max-w-lg"><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant w-full focus-within:ring-1 focus-within:ring-primary"><span class="material-symbols-outlined text-outline text-[18px]">search</span><input class="bg-transparent w-full text-on-surface placeholder:text-outline outline-none font-body-sm text-body-sm" placeholder="Search regulations, circulars, tasks, authorities..." type="text"/><kbd class="font-code-tabular text-label-sm bg-surface-container px-1.5 py-0.5 rounded text-outline">⌘K</kbd></div></div><div class="flex items-center gap-5"><div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm"><span class="material-symbols-outlined text-secondary text-[16px]">location_on</span><span>Maharashtra • Factory Reg</span></div><div class="relative cursor-pointer text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-error ring-2 ring-surface animate-pulse"></span></div><div class="flex items-center gap-3 pl-2 border-l border-surface-container-high"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGLCLwS_PpuBSlr1NnGJ8dBLTmqG2MLZ46rJbsmSwKQYfuydq72zyAFwEXg-2pxXeJmvXdX-4udUC0-UdawS6wmNS60_Iye-03nHEb82tbx1nlwgdLyd62p8mayF5Te3-3NbOB22ozz-OYdT7WWWzAd1JeoWnBvXLqypLOWpmLaqSvuxeLU7eaYbMi4yzM1rXd6uEuN5W0lumFOT6jVBfZ_QxHySboTPhjcMgFryJsCpBbybwSZi26"/><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Elena Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant">Compliance Lead</span></div></div></div></header><main class="w-full pt-16 px-gutter bg-surface"><div class="flex flex-col w-full pb-16">
+<!-- Top Greeting & Contextual Dossier Bar -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pt-6 pb-8">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+          Live Ingestion Active
+        </span>
+<span class="text-outline font-label-sm text-label-sm">Dossier ID: REG-2025-MH-084</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary font-medium tracking-tight">Good morning, Elena Vance</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+        Here is what changed across your subscribed jurisdictions and what requires your immediate operational attention.
+      </p>
+</div>
+<!-- Live Sync Telemetry Pill -->
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-surface-container-lowest shadow-sm self-start lg:self-end">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          Official Sources Synchronized: 14 mins ago
+        </span>
+<span class="font-body-sm text-body-sm text-outline">48 Federal &amp; State Portals Scraped &amp; Verified</span>
+</div>
+</div>
+</div>
+<!-- Primary Intelligence Metrics Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
+<!-- Metric 1: New Updates -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="absolute -right-3 -top-3 w-20 h-20 bg-surface-container-low rounded-full pointer-events-none transition-transform group-hover:scale-125"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">New Updates</span>
+<span class="material-symbols-outlined text-outline text-[20px]">feed</span>
+</div>
+<div class="flex items-baseline gap-3 mt-3">
+<span class="font-headline-xl text-headline-xl font-medium text-primary leading-none">12</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-semibold">+3 today</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-outline">
+<span class="font-body-sm text-body-sm truncate">CBIC &amp; Labour Ministry Gazettes</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span>
+</div>
+</div>
+<!-- Metric 2: Relevant to You -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary rounded-l-xl"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">Relevant to You</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">cloud_upload</span>
+</div>
+<div class="flex items-baseline gap-3 mt-3">
+<span class="font-headline-xl text-headline-xl font-medium text-secondary leading-none">7</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-low text-secondary font-bold">58% Ingestion Match</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center text-outline">
+<span class="font-body-sm text-body-sm truncate">Filter: Maharashtra • Manufacturing • 45 Emp.</span>
+</div>
+</div>
+<!-- Metric 3: Action Required -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -bottom-4 w-16 h-16 bg-error/5 rounded-full pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">Action Required</span>
+<span class="material-symbols-outlined text-error text-[20px]">error_circle_rounded</span>
+</div>
+<div class="flex items-baseline gap-3 mt-3">
+<span class="font-headline-xl text-headline-xl font-medium text-error leading-none">4</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-bold">Priority High</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center text-outline">
+<span class="font-body-sm text-body-sm truncate">Filing, Sensor Vendor, &amp; Telemetry Setup</span>
+</div>
+</div>
+<!-- Metric 4: Due Soon -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between group hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">Due Soon (&lt; 7 Days)</span>
+<span class="material-symbols-outlined text-outline text-[20px]">timer</span>
+</div>
+<div class="flex items-baseline gap-3 mt-3">
+<span class="font-headline-xl text-headline-xl font-medium text-primary leading-none">2</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-semibold">Risk: Moderate</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center text-outline">
+<span class="font-body-sm text-body-sm truncate">Earliest due date: 05 Oct 2025</span>
+</div>
+</div>
+</div>
+<!-- Interactive Infographic: Regulatory Intelligence Flow Pipeline -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm mb-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Regulatory Intelligence Flow</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Deterministic AI extraction &amp; Statutory matching pipeline</span>
+</div>
+<!-- Flow Visual Nodes with Connectors -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
+<!-- Node 1 -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col justify-between relative hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-outline font-bold tracking-wider">01 • DISCOVER</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="font-headline-md text-headline-md text-primary font-semibold">48</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Official Gazettes &amp; Circulars</div>
+<div class="mt-3 pt-2 text-[10px] font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">cloud_done</span> Scanned daily
+        </div>
+</div>
+<!-- Node 2 -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col justify-between relative hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-outline font-bold tracking-wider">02 • EXTRACT</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="font-headline-md text-headline-md text-primary font-semibold">12</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Detected Provisions &amp; Acts</div>
+<div class="mt-3 pt-2 text-[10px] font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">analytics</span> NLP Parsed
+        </div>
+</div>
+<!-- Node 3 -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col justify-between relative hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-outline font-bold tracking-wider">03 • MATCH</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim"></span>
+</div>
+<div class="font-headline-md text-headline-md text-secondary font-semibold">7</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Profile-Specific Correlations</div>
+<div class="mt-3 pt-2 text-[10px] font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">hub</span> Entity Match
+        </div>
+</div>
+<!-- Node 4 -->
+<div class="bg-surface-container-low rounded-lg p-4 flex flex-col justify-between relative hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-error font-bold tracking-wider">04 • ACT</span>
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+</div>
+<div class="font-headline-md text-headline-md text-error font-semibold">4</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct Operational Directives</div>
+<div class="mt-3 pt-2 text-[10px] font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-error">assignment_late</span> Action Required
+        </div>
+</div>
+<!-- Node 5 -->
+<div class="bg-primary rounded-lg p-4 flex flex-col justify-between text-on-primary relative shadow-md">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm text-on-primary-container font-bold tracking-wider">05 • COMPLIANCE</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+</div>
+<div class="font-headline-md text-headline-md text-on-primary font-semibold">78%</div>
+<div class="font-body-sm text-body-sm text-inverse-on-surface mt-1">Enterprise Audit Readiness</div>
+<div class="mt-3 pt-2 text-[10px] font-label-sm text-on-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary-container">verified</span> Current Index
+        </div>
+</div>
+</div>
+</div>
+<!-- Primary Workspace Split: Signature Impact Card & Live Regulatory Feeds -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start mb-8">
+<!-- Left Column (8 cols): Signature "Why This Matters to You" & "What Changed" Stream -->
+<div class="xl:col-span-8 flex flex-col gap-8 min-w-0">
+<!-- Signature Visual Component: "Why This Matters to You" Intelligence Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden relative">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="p-6 md:p-7">
+<!-- Card Header & Metadata Badges -->
+<div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                AI Relevance Engine
+              </span>
+<span class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                Gazette G.S.R. 204(E)
+              </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">alarm</span>
+                18 Days Left • Due 30 Oct 2025
+              </span>
+</div>
+</div>
+<!-- Headline & Synthesis -->
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">
+            Industrial Safety Standards Revision: Automated Fire Suppression Protocols
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Maharashtra Directorate of Industrial Safety has gazetted immediate revisions enforcing real-time acoustic and thermal Class-B sensors across sheet-metal and metal-cutting facilities.
+          </p>
+<!-- Sequential Impact Chain -->
+<div class="bg-surface-container-low rounded-xl p-5 mb-6">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-4">Deterministic Reasoning Chain</span>
+<div class="space-y-4">
+<!-- Step 1 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold shrink-0 mt-0.5">1</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Matched Business Profile</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Precision Fab Ltd • Sector: Manufacturing • Pune Unit (42 On-Site Workers)</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold shrink-0 mt-0.5">2</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Statutory Anchor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Factories Act 1948, Section 38 (Fire Precaution) r/w MH State Amendment Rule 65-B</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold shrink-0 mt-0.5">3</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Reason for Trigger</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Threshold applies to all factories with &gt;20 workers operating automatic CNC or laser-cutting apparatus.</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary font-bold shrink-0 mt-0.5">4</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Operational Impact</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mandatory deployment of Class-B heat-sensing nodes in Bays 2 &amp; 4 and digital inspection logging.</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold shrink-0 mt-0.5">5</div>
+<div>
+<span class="font-label-md text-label-md text-primary font-bold block">Prescribed Action Mandate</span>
+<span class="font-body-sm text-body-sm text-on-surface">Contract authorized safety auditor, complete sensor retrofitting, and register the certificate on the DISH portal.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Direct Execution Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+<div class="flex items-center gap-2">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg font-semibold hover:bg-primary-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">assignment_add</span>
+                Assign Task to Facilities Team
+              </button>
+<button class="bg-surface-container text-on-surface font-label-md text-label-md px-4 py-2 rounded-lg font-semibold hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                View Official Gazette
+              </button>
+</div>
+<div class="flex items-center gap-1.5 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+              Automated Legal Analysis • Confidence: 99.4%
+            </div>
+</div>
+</div>
+</div>
+<!-- Section: What Changed? (Granular Audit & Diff Stream) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_edu</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">What Changed? • Critical Statutory Updates</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold hover:underline cursor-pointer">View All 12 Updates</span>
+</div>
+<div class="space-y-6">
+<!-- Update Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">CPCB • Environment</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">State: All</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">Action Required</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Published: 02 Oct 2025 • Effective: 15 Oct 2025</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">
+              Central Pollution Control Board • Continuous Effluent Telemetry Log Mandate
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+              CPCB Circular no. B-190188 mandates transition away from offline physical ledger logs towards automated IoT telemetry integration directly linked to the central monitoring server.
+            </p>
+<!-- Before / Now Comparison Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-surface-container-lowest rounded-lg">
+<div class="flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm font-bold uppercase shrink-0">Before</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Monthly manual physical record log maintained by certified plant operator.</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase shrink-0">Now</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Real-time daily digital telemetry transmission via CPCB secure gateway API.</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span> Due in 7 Days (10 Oct 2025)
+                </span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1">
+                Configure Gateway Telemetry <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Update Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">Labour &amp; Employment • ESIC</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Central Gazette</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold">Review Needed</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Published: 28 Sep 2025 • Effective: 15 Oct 2025</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">
+              ESIC Wage Ceiling Revision • Contribution Structure Realignment
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+              Proposed upward revision of monthly wage ceiling under Section 2(9) of the ESI Act for mandatory medical coverage calculation.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-3 bg-surface-container-lowest rounded-lg">
+<div class="flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm font-bold uppercase shrink-0">Before</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Statutory monthly wage threshold set at ₹21,000 for standard workers.</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase shrink-0">Now</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Elevated threshold to ₹25,000; requires payroll software calculation adjustments.</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-4 pt-2">
+<span class="font-label-sm text-label-sm text-outline">Impacts 8 employees at Precision Fab Ltd</span>
+<button class="font-label-sm text-label-sm text-primary font-bold hover:underline flex items-center gap-1">
+                Notify HR Payroll Lead <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Update Item 3 -->
+<div class="bg-surface-container-low rounded-xl p-5 hover:bg-surface-container transition-colors">
+<div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">Taxation • CBIC</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">National</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">Informational</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Published: 26 Sep 2025 • Effective: 01 Nov 2025</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2">
+              GST Notification 18/2025 • E-Invoicing Generation Threshold Clarification
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+              Clarification regarding B2B e-invoice generation for suppliers with aggregate turnover exceeding statutory threshold in any preceding FY. Precision Fab Ltd is currently compliant.
+            </p>
+<div class="flex items-center justify-between mt-2">
+<span class="font-label-sm text-label-sm text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> No action required for current fiscal bracket
+              </span>
+<button class="font-label-sm text-label-sm text-outline hover:text-on-surface font-semibold flex items-center gap-1">
+                Archive Notice <span class="material-symbols-outlined text-[14px]">archive</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Horizontal Deadline Timeline -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_clock</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Statutory Deadlines &amp; Filing Runway</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">October 2025 Cycle</span>
+</div>
+<div class="relative pt-2 pb-4">
+<!-- Timeline Track Line -->
+<div class="absolute top-5 left-4 right-4 h-1 bg-surface-container hidden sm:block"></div>
+<!-- Timeline Items Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-6 relative">
+<!-- Today / 05 Oct -->
+<div class="flex flex-col items-start relative">
+<div class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center font-label-sm text-label-sm font-bold z-10 shadow-sm mb-3">
+                !
+              </div>
+<span class="font-label-sm text-label-sm text-error font-bold uppercase">05 Oct • 2 Days Left</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1">Review Fire Vendors</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Shortlist 3 certified DISH technicians</span>
+</div>
+<!-- 10 Oct -->
+<div class="flex flex-col items-start relative">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold z-10 shadow-sm mb-3">
+                10
+              </div>
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase">10 Oct • 7 Days Left</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1">Submit CPCB Log</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Effluent data upload for September</span>
+</div>
+<!-- 15 Oct -->
+<div class="flex flex-col items-start relative">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold z-10 shadow-sm mb-3">
+                15
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase">15 Oct • 12 Days Left</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1">Update ESIC Slabs</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Adjust ₹25k ceiling in payroll engine</span>
+</div>
+<!-- 30 Oct -->
+<div class="flex flex-col items-start relative">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold z-10 shadow-sm mb-3">
+                30
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase">30 Oct • 18 Days Left</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold mt-1">Safety Certificate</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Form 4-A filing on DISH portal</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols): Contextual Compliance Scorecard, Quick Tasks, & Operational Health -->
+<div class="xl:col-span-4 flex flex-col gap-8 min-w-0">
+<!-- Overall Compliance Radial Gauge & Breakdown Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Compliance Health</h3>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold">Q3 FY26</span>
+</div>
+<!-- Inline SVG Gauge (Under 2KB, dynamic styling) -->
+<div class="flex flex-col items-center justify-center py-4 relative">
+<svg class="w-44 h-44 transform -rotate-90" viewbox="0 0 120 120">
+<!-- Track Circle -->
+<circle class="text-surface-container" cx="60" cy="60" fill="transparent" r="50" stroke="currentColor" stroke-width="10"></circle>
+<!-- Progress Arc (78%) -->
+<circle class="text-secondary" cx="60" cy="60" fill="transparent" r="50" stroke="currentColor" stroke-dasharray="314.16" stroke-dashoffset="69.1" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-headline-xl text-headline-xl text-primary font-bold leading-none">78%</span>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mt-1">Audit Ready</span>
+</div>
+</div>
+<div class="text-center font-body-sm text-body-sm text-on-surface-variant px-4 mb-6">
+          Entity is on track for standard statutory filings. Resolution of 2 pending safety items will raise rating to 92%.
+        </div>
+<!-- Category Progress Breakdown -->
+<div class="space-y-4">
+<!-- GST / Tax -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">GST &amp; Taxation</span>
+<span class="font-code-tabular text-body-sm text-secondary font-bold">90%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 90%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-1 block">All returns filed for Q2</span>
+</div>
+<!-- Environmental Standards -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Environmental Standards</span>
+<span class="font-code-tabular text-body-sm text-secondary font-bold">82%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 82%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-1 block">1 discharge audit scheduled</span>
+</div>
+<!-- Labour & Wages -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Labour &amp; Wages (ESIC/EPF)</span>
+<span class="font-code-tabular text-body-sm text-primary font-bold">75%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-1 block">2 configuration actions pending</span>
+</div>
+<!-- Factory Safety -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Factory Safety &amp; Fire</span>
+<span class="font-code-tabular text-body-sm text-error font-bold">65%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-error h-2 rounded-full" style="width: 65%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold mt-1 block">Attention Required: G.S.R. 204</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+          Download Compliance Deck (PDF)
+        </button>
+</div>
+<!-- Actionable Task Triage List -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Immediate Tasks (4)</h3>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface text-[18px]">more_horiz</span>
+</div>
+<div class="space-y-3">
+<!-- Task 1 -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<input class="mt-1 h-4 w-4 rounded accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Contract Class-B Fire Auditor</span>
+<span class="font-body-sm text-body-sm text-outline block truncate">Assigned to: Rajesh K. (Facilities)</span>
+<span class="font-label-sm text-label-sm text-error font-bold mt-1 inline-block">Due in 2 days</span>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<input class="mt-1 h-4 w-4 rounded accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Sync CPCB IoT Telemetry Stream</span>
+<span class="font-body-sm text-body-sm text-outline block truncate">Assigned to: System Admin</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold mt-1 inline-block">Due 10 Oct 2025</span>
+</div>
+</div>
+<!-- Task 3 -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<input class="mt-1 h-4 w-4 rounded accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Update ESIC Ceiling in Tally/ERP</span>
+<span class="font-body-sm text-body-sm text-outline block truncate">Assigned to: Payroll Office</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold mt-1 inline-block">Due 15 Oct 2025</span>
+</div>
+</div>
+<!-- Task 4 -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<input class="mt-1 h-4 w-4 rounded accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block leading-tight">Review Q3 Board Compliance Report</span>
+<span class="font-body-sm text-body-sm text-outline block truncate">Assigned to: Elena Vance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold mt-1 inline-block">Due 22 Oct 2025</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 text-center font-label-md text-label-md text-secondary font-bold hover:underline">
+          + Create Custom Task
+        </button>
+</div>
+<!-- Quick Regulatory Contact / Authority Desk -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-3">Enforcing Authorities</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary font-bold font-label-sm text-label-sm">
+                MH
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">DISH Maharashtra</span>
+<span class="font-body-sm text-body-sm text-outline">Industrial Safety Dept</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] hover:text-on-surface cursor-pointer">call</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-secondary/10 flex items-center justify-center text-secondary font-bold font-label-sm text-label-sm">
+                CP
+              </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">CPCB Regional</span>
+<span class="font-body-sm text-body-sm text-outline">Pollution Board Pune</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] hover:text-on-surface cursor-pointer">call</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive checkbox handler for tasks micro-interaction
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const parent = this.closest('.flex-1');
+      if (parent) {
+        const title = parent.querySelector('.font-label-md');
+        if (this.checked) {
+          title.classList.add('line-through', 'text-outline');
+        } else {
+          title.classList.remove('line-through', 'text-outline');
+        }
+      }
+    });
+  });
+</script></main></div></body></html>
