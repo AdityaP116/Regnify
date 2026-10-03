@@ -9,7 +9,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.12.10
       - key: FRONTEND_URL
-        value: https://regnify.onrender.com # To be updated with actual frontend URL
+        value: https://regnify-five.vercel.app
       - key: DEMO_MODE
         value: "false"
       - key: FIREBASE_PROJECT_ID
