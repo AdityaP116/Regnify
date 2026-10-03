@@ -60,3 +60,35 @@ async def require_auth(authorization: str | None = Header(default=None)) -> str:
 
 # Alias for routes that are optionally authenticated
 optional_auth = require_auth
+
+async def require_auth_token(authorization: str | None = Header(default=None)) -> dict:
+    """
+    Extract and verify the Firebase Bearer token.
+    Returns the decoded token dict on success.
+    Raises HTTP 401 if the token is missing/invalid.
+    In demo mode returns a demo token.
+    """
+    if not is_firebase_ok():
+        return {"uid": DEMO_UID, "name": "Elena Vance", "email": "elena.vance@precisionfab.in"}
+
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing or malformed Authorization header.",
+        )
+
+    token = authorization[7:]
+    try:
+        return verify_id_token(token)
+    except InvalidIdTokenError as exc:
+        logger.warning("[auth] Invalid token: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or expired Firebase token.",
+        )
+    except Exception as exc:
+        logger.error("[auth] Token verification error: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token verification failed.",
+        )

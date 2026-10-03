@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import React, { useState, type FormEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthLayout } from '../components/AuthLayout';
 import { Divider, Field, GoogleButton, InlineError } from '../components/FormFields';
@@ -6,7 +6,7 @@ import { Button } from '../components/ui';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
-  const { signInEmail, signInGoogle } = useAuth();
+  const { signInEmail, signInGoogle, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = (location.state as { from?: string } | null)?.from ?? '/app/overview';
@@ -16,16 +16,21 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  React.useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setBusy(true);
     setError(null);
     try {
       await signInEmail(email, password);
-      navigate(from, { replace: true });
+      // Let the useEffect handle navigation when user state updates
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign in failed. Check your credentials.');
-    } finally {
       setBusy(false);
     }
   }
@@ -35,10 +40,9 @@ export default function Login() {
     setError(null);
     try {
       await signInGoogle();
-      navigate(from, { replace: true });
+      // Let the useEffect handle navigation when user state updates
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Google sign in failed.');
-    } finally {
       setBusy(false);
     }
   }

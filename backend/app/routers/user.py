@@ -8,7 +8,7 @@ PUT /api/user-profile — update profile for the authenticated user
 from __future__ import annotations
 from fastapi import APIRouter, Depends
 
-from app.auth import require_auth
+from app.auth import require_auth_token
 from app.models import UpdateUserProfileRequest, UserProfile
 from app.services.firebase import doc_get, doc_set, is_firebase_ok
 
@@ -25,8 +25,9 @@ def _initials_of(name: str) -> str:
 
 
 @router.get("/user-profile", response_model=UserProfile)
-async def get_user_profile(uid: str = Depends(require_auth)) -> UserProfile:
+async def get_user_profile(token: dict = Depends(require_auth_token)) -> UserProfile:
     """Return the user profile for the current authenticated user."""
+    uid = token.get("uid")
     if is_firebase_ok():
         doc = doc_get("users", uid)
         if doc:
@@ -36,12 +37,15 @@ async def get_user_profile(uid: str = Depends(require_auth)) -> UserProfile:
                 pass
 
     # Default profile construction for uid
+    name = token.get("name") or "Elena Vance"
+    email = token.get("email") or "elena.vance@precisionfab.in"
+    
     default_profile = UserProfile(
         uid=uid,
-        name="Elena Vance",
-        email="elena.vance@precisionfab.in",
+        name=name,
+        email=email,
         role="Compliance Lead",
-        initials="EV",
+        initials=_initials_of(name),
         provider="password",
         businessId="biz-precision-fab-pune",
         onboarded=True,
@@ -56,10 +60,11 @@ async def get_user_profile(uid: str = Depends(require_auth)) -> UserProfile:
 @router.put("/user-profile", response_model=UserProfile)
 async def update_user_profile(
     payload: UpdateUserProfileRequest,
-    uid: str = Depends(require_auth),
+    token: dict = Depends(require_auth_token),
 ) -> UserProfile:
     """Update the user profile for the current user."""
-    current = await get_user_profile(uid=uid)
+    uid = token.get("uid")
+    current = await get_user_profile(token=token)
     updated_dict = current.model_dump()
 
     if payload.name is not None:

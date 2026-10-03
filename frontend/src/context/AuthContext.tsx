@@ -62,15 +62,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const syncProfile = useCallback(async (baseUser: UserAccount) => {
     try {
       const profile = await api.getUserProfile();
+      
+      // Workaround: If the backend returned the dummy seed data (or it was previously
+      // saved to Firestore due to a bug), we should prefer the real Firebase user data.
+      const isDummyBackend = profile.email === 'elena.vance@precisionfab.in' && baseUser.email && baseUser.email !== 'elena.vance@precisionfab.in';
+      
       const merged: UserAccount = {
         ...baseUser,
-        name: profile.name || baseUser.name,
-        email: profile.email || baseUser.email,
+        name: isDummyBackend ? baseUser.name : (profile.name || baseUser.name),
+        email: isDummyBackend ? baseUser.email : (profile.email || baseUser.email),
         role: profile.role || baseUser.role,
-        initials: initialsOf(profile.name || baseUser.name),
+        initials: isDummyBackend ? baseUser.initials : initialsOf(profile.name || baseUser.name),
         businessId: profile.businessId || baseUser.businessId,
         onboarded: profile.onboarded ?? baseUser.onboarded,
       };
+      
+      // If we recovered real data from a dummy state, update the backend so it's correct next time
+      if (isDummyBackend && baseUser.name && baseUser.email) {
+         void api.updateUserProfile({ name: baseUser.name, email: baseUser.email, initials: baseUser.initials });
+      }
+
       setUser(merged);
       if (!isFirebaseConfigured) localStorage.setItem(LS_KEY, JSON.stringify(merged));
     } catch {

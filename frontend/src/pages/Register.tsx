@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import React, { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthLayout } from '../components/AuthLayout';
 import { Divider, Field, GoogleButton, InlineError } from '../components/FormFields';
@@ -6,7 +6,7 @@ import { Button } from '../components/ui';
 import { useAuth } from '../context/AuthContext';
 
 export default function Register() {
-  const { signUpEmail, signInGoogle } = useAuth();
+  const { signUpEmail, signInGoogle, user } = useAuth();
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,16 +14,21 @@ export default function Register() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  React.useEffect(() => {
+    if (user) {
+      navigate('/onboarding', { replace: true });
+    }
+  }, [user, navigate]);
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setBusy(true);
     setError(null);
     try {
       await signUpEmail(name, email, password);
-      navigate('/onboarding', { replace: true });
+      // Let the useEffect handle navigation when user state updates
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Registration failed. Try a stronger password.');
-    } finally {
       setBusy(false);
     }
   }
@@ -33,10 +38,9 @@ export default function Register() {
     setError(null);
     try {
       await signInGoogle();
-      navigate('/onboarding', { replace: true });
+      // Let the useEffect handle navigation when user state updates
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Google sign up failed.');
-    } finally {
       setBusy(false);
     }
   }
