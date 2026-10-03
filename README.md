@@ -472,7 +472,7 @@ The backend allows cross-origin requests from the URL specified in the `FRONTEND
 
 ## 👥 Team
 
-Built by **Team Regnify** for the **Rookery Hackathon 2026 — Keep Building!**
+Built by **Team ALFA** for the **Rookery Hackathon 2026 — Keep Building!**
 
 | Name |
 |---|
