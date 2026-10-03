@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Icon } from '../components/Icon';
 import { Button, Card, Chip } from '../components/ui';
 import { ErrorState, LoadingState } from '../components/States';
 import { PageHeader } from '../components/PageHeader';
 import { useAppData } from '../context/AppDataContext';
+import type { BusinessProfile } from '../lib/types';
 
 const FIELDS = [
   { key: 'name', label: 'Registered Entity Name', icon: 'business' },
@@ -20,28 +21,81 @@ const FIELDS = [
   { key: 'pollutionCategory', label: 'Pollution Category', icon: 'air' },
 ] as const;
 
-export default function BusinessProfile() {
-  const { state, error, reload, business, sources } = useAppData();
+export default function BusinessProfilePage() {
+  const { state, error, reload, business, updateBusiness, sources } = useAppData();
   const [editing, setEditing] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  const [formState, setFormState] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    if (business) {
+      setFormState({
+        name: business.name || '',
+        entity: business.entity || '',
+        sector: business.sector || '',
+        jurisdiction: business.jurisdiction || '',
+        location: business.location || '',
+        licenseNo: business.licenseNo || '',
+        turnover: business.turnover || '',
+        shifts: business.shifts || '',
+        taxRegime: business.taxRegime || '',
+        operatingMarket: business.operatingMarket || '',
+        boilerCategory: business.boilerCategory || '',
+        pollutionCategory: business.pollutionCategory || '',
+      });
+    }
+  }, [business]);
 
   if (state === 'loading') return <LoadingState label="Loading your registered business profile…" />;
   if (state === 'error') return <ErrorState description={error ?? undefined} onRetry={reload} />;
   if (!business) return <ErrorState title="Business profile unavailable" description="Complete onboarding to generate your regulatory matching profile." onRetry={reload} />;
 
-  const values: Record<string, string> = {
-    name: business.name,
-    entity: business.entity,
-    sector: business.sector,
-    jurisdiction: business.jurisdiction,
-    location: business.location,
-    licenseNo: business.licenseNo,
-    turnover: business.turnover,
-    shifts: business.shifts,
-    taxRegime: business.taxRegime,
-    operatingMarket: business.operatingMarket,
-    boilerCategory: business.boilerCategory,
-    pollutionCategory: business.pollutionCategory,
+  const handleChange = (key: string, value: string) => {
+    setFormState((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    setSaveError(null);
+    setSaved(false);
+    try {
+      const initials = formState.name
+        ? formState.name
+            .split(' ')
+            .map((word) => word[0])
+            .join('')
+            .substring(0, 2)
+            .toUpperCase()
+        : business.logoInitials;
+
+      const payload: Partial<BusinessProfile> = {
+        ...business,
+        name: formState.name,
+        entity: formState.entity,
+        sector: formState.sector,
+        jurisdiction: formState.jurisdiction,
+        location: formState.location,
+        licenseNo: formState.licenseNo,
+        turnover: formState.turnover,
+        shifts: formState.shifts,
+        taxRegime: formState.taxRegime,
+        operatingMarket: formState.operatingMarket,
+        boilerCategory: formState.boilerCategory,
+        pollutionCategory: formState.pollutionCategory,
+        logoInitials: initials,
+      };
+
+      await updateBusiness(payload);
+      setEditing(false);
+      setSaved(true);
+    } catch (err) {
+      setSaveError(err instanceof Error ? err.message : 'Failed to save business profile changes.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -54,9 +108,13 @@ export default function BusinessProfile() {
           <>
             <Button variant="secondary" icon="upload_file">Re-import MCA Data</Button>
             {editing ? (
-              <Button icon="save" onClick={() => { setEditing(false); setSaved(true); }}>Save Changes</Button>
+              <Button icon="save" disabled={saving} onClick={() => void handleSave()}>
+                {saving ? 'Saving...' : 'Save Changes'}
+              </Button>
             ) : (
-              <Button icon="edit" onClick={() => { setEditing(true); setSaved(false); }}>Edit Profile</Button>
+              <Button icon="edit" onClick={() => { setEditing(true); setSaved(false); setSaveError(null); }}>
+                Edit Profile
+              </Button>
             )}
           </>
         }
@@ -64,7 +122,13 @@ export default function BusinessProfile() {
 
       {saved && (
         <div className="mb-6 flex items-center gap-2 p-3 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md">
-          <Icon name="check_circle" size={18} /> Profile updated. Regulatory matching will re-run on the next ingestion cycle.
+          <Icon name="check_circle" size={18} /> Profile updated and saved to Firestore. Regulatory matching will re-run on the next ingestion cycle.
+        </div>
+      )}
+
+      {saveError && (
+        <div className="mb-6 flex items-center gap-2 p-3 rounded-lg bg-error-container text-on-error-container font-label-md text-label-md">
+          <Icon name="error" size={18} /> {saveError}
         </div>
       )}
 
@@ -106,11 +170,12 @@ export default function BusinessProfile() {
                   </span>
                   {editing ? (
                     <input
-                      defaultValue={values[f.key]}
+                      value={formState[f.key] ?? ''}
+                      onChange={(e) => handleChange(f.key, e.target.value)}
                       className="px-2 py-1.5 rounded-md bg-surface-container-low border border-[#E2E8E5] font-label-md text-label-md text-on-surface focus:outline-none focus:border-primary"
                     />
                   ) : (
-                    <span className="font-label-md text-label-md text-on-surface font-semibold">{values[f.key]}</span>
+                    <span className="font-label-md text-label-md text-on-surface font-semibold">{formState[f.key] || (business as any)[f.key]}</span>
                   )}
                 </div>
               ))}

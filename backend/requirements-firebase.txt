@@ -1,0 +1,9 @@
+# Firebase Admin / Firestore support.
+# Python 3.14 wheels for grpcio/protobuf (pulled in transitively by
+# firebase-admin) are still rolling out; this file is therefore separate from
+# requirements.txt so the API can always start.
+#
+#   pip install -r requirements-firebase.txt
+#
+firebase-admin>=6.5.0
+google-cloud-firestore>=2.16.0

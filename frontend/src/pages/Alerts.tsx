@@ -11,7 +11,7 @@ const TABS = ['All Alerts', 'Action Required', 'Review Needed', 'Informational']
 type Tab = (typeof TABS)[number];
 
 export default function Alerts() {
-  const { state, error, reload, alerts, getRegulation, markNotificationRead } = useAppData();
+  const { state, error, reload, alerts, getRegulation, markAlertRead } = useAppData();
   const [tab, setTab] = useState<Tab>('All Alerts');
   const [acknowledged, setAcknowledged] = useState<string[]>([]);
 
@@ -27,7 +27,7 @@ export default function Alerts() {
 
   const acknowledge = (id: string) => {
     setAcknowledged((prev) => (prev.includes(id) ? prev : [...prev, id]));
-    markNotificationRead(id);
+    void markAlertRead(id);
   };
 
   return (

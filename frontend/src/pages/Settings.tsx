@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Icon } from '../components/Icon';
 import { Button, Card, Chip } from '../components/ui';
 import { PageHeader } from '../components/PageHeader';
@@ -38,9 +38,44 @@ function Toggle({ label, description, defaultOn = false }: { label: string; desc
 }
 
 export default function Settings() {
-  const { user } = useAuth();
-  const { sources } = useAppData();
+  const { user, updateUserProfile } = useAuth();
+  const { sources, reload } = useAppData();
   const [tab, setTab] = useState<TabKey>('account');
+
+  const [name, setName] = useState(user?.name ?? '');
+  const [email, setEmail] = useState(user?.email ?? '');
+  const [role, setRole] = useState(user?.role ?? 'Compliance Lead');
+
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name ?? '');
+      setEmail(user.email ?? '');
+      setRole(user.role ?? 'Compliance Lead');
+    }
+  }, [user]);
+
+  const handleSavePreferences = async () => {
+    setSaving(true);
+    setSaved(false);
+    setErrorMsg(null);
+    try {
+      await updateUserProfile({
+        name,
+        email,
+        role,
+      });
+      setSaved(true);
+      reload();
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to update settings.');
+    } finally {
+      setSaving(false);
+    }
+  };
 
   return (
     <div className="pb-16">
@@ -48,8 +83,24 @@ export default function Settings() {
         eyebrow="Workspace Controls"
         title="Settings"
         description="Manage your account, notification routing, security posture and connected authority feeds."
-        actions={<Button icon="save">Save Preferences</Button>}
+        actions={
+          <Button icon="save" disabled={saving} onClick={() => void handleSavePreferences()}>
+            {saving ? 'Saving...' : 'Save Preferences'}
+          </Button>
+        }
       />
+
+      {saved && (
+        <div className="mb-6 flex items-center gap-2 p-3 rounded-lg bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+          <Icon name="check_circle" size={18} /> Preferences updated successfully across workspace and Firestore.
+        </div>
+      )}
+
+      {errorMsg && (
+        <div className="mb-6 flex items-center gap-2 p-3 rounded-lg bg-error-container text-on-error-container font-label-md text-label-md">
+          <Icon name="error" size={18} /> {errorMsg}
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-3">
@@ -83,20 +134,38 @@ export default function Settings() {
                 <Button variant="secondary" icon="photo_camera" className="ml-auto shrink-0">Change Photo</Button>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  { label: 'Full Name', value: user?.name ?? '' },
-                  { label: 'Work Email', value: user?.email ?? '' },
-                  { label: 'Role', value: user?.role ?? 'Compliance Lead' },
-                  { label: 'Sign-in Provider', value: user?.provider === 'google.com' ? 'Google Workspace' : 'Email & Password' },
-                ].map((f) => (
-                  <label key={f.label} className="flex flex-col gap-1">
-                    <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">{f.label}</span>
-                    <input
-                      defaultValue={f.value}
-                      className="px-3 py-2.5 rounded-lg bg-surface-container-low border border-[#E2E8E5] font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary"
-                    />
-                  </label>
-                ))}
+                <label className="flex flex-col gap-1">
+                  <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">Full Name</span>
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="px-3 py-2.5 rounded-lg bg-surface-container-low border border-[#E2E8E5] font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">Work Email</span>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="px-3 py-2.5 rounded-lg bg-surface-container-low border border-[#E2E8E5] font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">Role</span>
+                  <input
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    className="px-3 py-2.5 rounded-lg bg-surface-container-low border border-[#E2E8E5] font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary"
+                  />
+                </label>
+                <label className="flex flex-col gap-1">
+                  <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">Sign-in Provider</span>
+                  <input
+                    disabled
+                    value={user?.provider === 'google.com' ? 'Google Workspace' : 'Email & Password'}
+                    className="px-3 py-2.5 rounded-lg bg-surface-container-high border border-[#E2E8E5] font-body-md text-body-md text-on-surface-variant cursor-not-allowed"
+                  />
+                </label>
               </div>
             </Card>
           )}

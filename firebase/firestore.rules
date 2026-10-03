@@ -1,0 +1,67 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users can only read/write their own user document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Business profile — readable by any authenticated user (single-tenant demo)
+    match /businesses/{businessId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Regulations — read-only for all authenticated users
+    match /regulations/{regulationId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only written by backend service account
+    }
+
+    // Alerts — read-only for all authenticated users
+    match /alerts/{alertId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Compliance tasks — users can read/write (backend also writes)
+    match /complianceTasks/{taskId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Government sources — read-only
+    match /governmentSources/{sourceId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Calendar deadlines — read-only
+    match /calendarDeadlines/{deadlineId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Notifications — users can read/update their own
+    match /notifications/{notifId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Domain concentration — read-only
+    match /domainConcentration/{domainId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // Dashboard snapshot — read-only
+    match /dashboardSnapshot/{snapshotId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    // AI sessions — users can read their own
+    match /aiSessions/{sessionId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

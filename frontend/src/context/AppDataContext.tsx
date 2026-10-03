@@ -37,9 +37,11 @@ interface AppData {
   notifications: NotificationItem[];
   getRegulation: (id: string) => Regulation | undefined;
   getAlertsForRegulation: (id: string) => AlertItem[];
+  updateBusiness: (payload: Partial<BusinessProfile>) => Promise<BusinessProfile>;
   addTask: (payload: Partial<ComplianceTask>) => Promise<ComplianceTask>;
   updateTaskStatus: (id: string, status: ComplianceTask['status']) => void;
-  markNotificationRead: (id: string) => void;
+  markAlertRead: (id: string) => Promise<void>;
+  markNotificationRead: (id: string) => Promise<void>;
 }
 
 const AppDataContext = createContext<AppData | undefined>(undefined);
@@ -112,6 +114,12 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
     [alerts],
   );
 
+  const updateBusiness = useCallback(async (payload: Partial<BusinessProfile>) => {
+    const updated = await api.updateBusinessProfile(payload);
+    setBusiness(updated);
+    return updated;
+  }, []);
+
   const addTask = useCallback(async (payload: Partial<ComplianceTask>) => {
     const created = await api.createTask(payload);
     setTasks((prev) => [created, ...prev]);
@@ -124,10 +132,20 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
         t.id === id ? { ...t, status, progress: status === 'completed' ? 100 : t.progress } : t,
       ),
     );
+    // Best-effort backend persistence
+    void api.updateTask(id, status).catch(() => undefined);
   }, []);
 
-  const markNotificationRead = useCallback((id: string) => {
+  const markAlertRead = useCallback(async (id: string) => {
+    setAlerts((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, requiresAction: false, status: 'Review Needed' } : a)),
+    );
+    await api.markAlertRead(id).catch(() => undefined);
+  }, []);
+
+  const markNotificationRead = useCallback(async (id: string) => {
     setNotifications((prev) => prev.map((n) => (n.id === id ? { ...n, read: true } : n)));
+    await api.markNotificationRead(id).catch(() => undefined);
   }, []);
 
   const value = useMemo<AppData>(
@@ -146,8 +164,10 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
       notifications,
       getRegulation,
       getAlertsForRegulation,
+      updateBusiness,
       addTask,
       updateTaskStatus,
+      markAlertRead,
       markNotificationRead,
     }),
     [
@@ -165,8 +185,10 @@ export function AppDataProvider({ children }: { children: ReactNode }) {
       notifications,
       getRegulation,
       getAlertsForRegulation,
+      updateBusiness,
       addTask,
       updateTaskStatus,
+      markAlertRead,
       markNotificationRead,
     ],
   );
